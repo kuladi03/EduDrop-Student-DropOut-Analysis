@@ -1,0 +1,161 @@
+/* Reset some default styles */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  /* Header Styles */
+  header {
+  
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  nav ul {
+    list-style: none;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  /* Hero Section Styles */
+  .hero {
+    background-image: url('https://images.unsplash.com/photo-1464618663641-bbdd760ae84a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 150px 0;
+  }
+  
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .content h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+  
+  .subtitle {
+    font-size: 24px;
+  }
+  
+  .site-name {
+    color: #ff6600;
+  }
+  
+  /* Features Section Styles */
+  .features {
+    background-color: #fff;
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  .feature {
+    margin: 0 20px;
+  }
+  
+  .feature img {
+    width: 40px; /* Adjusted icon size */
+    height: 40px; /* Adjusted icon size */
+    margin-bottom: 20px;
+  }
+  
+  .feature h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  /* Call to Action Styles */
+  .cta {
+    background-color: #ff6600;
+    color: #fff;
+    text-align: center;
+    padding: 80px 0;
+  }
+  
+  .cta h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .cta p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  /* CTA Button Styles */
+  .cta-button {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    padding: 12px 24px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .cta-button:hover {
+    background-color: #555;
+  }
+  
+  /* Footer Styles */
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  /* Add this CSS to adjust the size of social icons */
+  .social-icons img {
+    width: 50px; /* Adjust the width as needed */
+    height: 50px; /* Adjust the height as needed */
+    margin: 5px; /* Add some margin for spacing between icons */
+  }
+  
+  /* Style the header buttons */
+  .header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header li {
+    display: inline;
+    margin-right: 10px; /* Add some space between buttons */
+  }
+  
+  .header a {
+    text-decoration: none;
+    padding: 10px 20px; /* Adjust padding to make buttons larger */
+    background-color: #4CAF50; /* Button background color */
+    color: white; /* Button text color */
+    border-radius: 6px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Add a smooth hover effect */
+  }
+  
+  .header a:hover {
+    background-color: #3e8e41; /* Change color on hover */
+  }
+  
