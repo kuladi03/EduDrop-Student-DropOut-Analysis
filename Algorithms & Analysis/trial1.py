@@ -33,33 +33,33 @@ df = pd.DataFrame({
     'Count_T': y
 })
 
-fig = px.pie(df,
-             names='Target',
-             values='Count_T',
-             title='How many dropouts, enrolled & graduates are there in Target column')
-fig.update_traces(labels=['Gender', 'Debtor', 'Tution fees up to date'], hole=0.4, textinfo='value+label', pull=[0, 0.2, 0.1])
-fig.show()
+# fig = px.pie(df,
+#              names='Target',
+#              values='Count_T',
+#              title='How many dropouts, enrolled & graduates are there in Target column')
+# fig.update_traces(labels=['Gender', 'Debtor', 'Tution fees up to date'], hole=0.4, textinfo='value+label', pull=[0, 0.2, 0.1])
+# fig.show()
 
 correlations = data.corr()['Target']
 top_10_features = correlations.abs().nlargest(10).index
 top_10_corr_values = correlations[top_10_features]
 
-plt.figure(figsize=(10, 11))
-plt.bar(top_10_features, top_10_corr_values)
-plt.xlabel('Features')
-plt.ylabel('Correlation with Target')
-plt.title('Top 10 Features with Highest Correlation to Target')
-plt.xticks(rotation=45)
-plt.show()
+# plt.figure(figsize=(10, 11))
+# plt.bar(top_10_features, top_10_corr_values)
+# plt.xlabel('Features')
+# plt.ylabel('Correlation with Target')
+# plt.title('Top 10 Features with Highest Correlation to Target')
+# plt.xticks(rotation=45)
+# plt.show()
 
 px.histogram(new_data['Age'], x='Age', color_discrete_sequence=['lightblue'])
 
-plt.figure(figsize=(10, 6))
-sns.boxplot(x='Target', y='Age', data=new_data)
-plt.xlabel('Target')
-plt.ylabel('Age')
-plt.title('Relationship between Age and Target')
-plt.show()
+# plt.figure(figsize=(10, 6))
+# sns.boxplot(x='Target', y='Age', data=new_data)
+# plt.xlabel('Target')
+# plt.ylabel('Age')
+# plt.title('Relationship between Age and Target')
+# plt.show()
 
 X = new_data.drop('Target', axis=1)
 y = new_data['Target']

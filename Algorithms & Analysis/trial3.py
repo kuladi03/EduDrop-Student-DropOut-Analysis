@@ -10,8 +10,7 @@ data = pd.read_csv("assets/dataset.csv")
 # Explore the dataset (e.g., check data types, missing values, etc.)
 print(data.info())
 # Define the features (X) and the target variable (y)
-X = data[['Marital status', 'Application mode', 'Application order', 'Course', 'Daytime/evening attendance',
-          'Previous qualification', 'Mother\'s occupation', 'Father\'s occupation', 'Gender', 'Debtor',
+X = data[['Marital status', 'Parent\'s occupation', 'Gender', 'Debtor',
           'Tuition fees up to date']]
 y = data['Target']  # Assuming 'Target' is the column that indicates dropout status
 
