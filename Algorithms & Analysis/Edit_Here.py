@@ -19,9 +19,9 @@ data['Target'] = label_encoder.fit_transform(data['Target'])
 
 # Define the features (X) and the target variable (y)
 X = data[
-    ['Marital status', "Mother's occupation", "Father's occupation", 'Gender', 'Debtor', 'Tuition fees up to date',
-     'Curricular units 1st sem (grade)', 'Curricular units 2nd sem (grade)', 'Unemployment rate']]
-y = data['Target']  # Assuming 'Target' is the column that indicates dropout status
+    ["Mother's occupation", "Father's occupation", 'Course', 'Curricular units 1st sem (approved)', 'Curricular units 2nd sem (approved)' , 'Tuition fees up to date',
+     'Curricular units 1st sem (grade)', 'Age at enrollment']]
+y = data['Target'] # Assuming 'Target' is the column that indicates dropout status
 
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)

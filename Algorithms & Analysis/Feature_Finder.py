@@ -7,9 +7,7 @@ from sklearn.ensemble import RandomForestClassifier
 data = pd.read_csv("assets/new dataset.csv")
 
 # Define the features (X) and the target variable (y)
-X = data[
-    ['Marital status', "Mother's occupation", "Father's occupation", 'Gender', 'Debtor', 'Tuition fees up to date',
-     'Curricular units 1st sem (grade)', 'Curricular units 2nd sem (grade)', 'Unemployment rate']]
+X = data.drop(columns=['Target'])  # Assuming 'Target' is the target variable
 y = data['Target']  # Assuming 'Target' is the column that indicates dropout status
 
 # Split the data into training and testing sets
