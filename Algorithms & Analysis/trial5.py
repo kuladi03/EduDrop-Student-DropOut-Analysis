@@ -15,7 +15,7 @@ data = pd.read_csv("assets/new dataset.csv")
 # Define the features (X) and the target variable (y)
 X = data[
     ['Marital status', "Mother's occupation", "Father's occupation", 'Gender', 'Debtor', 'Tuition fees up to date',
-     'Curricular units 1st sem (grade)', 'Curricular units 2nd sem (grade)', 'Unemployment rate']]
+     'Curricular units 1st sem (grade)', 'Unemployment rate']]
 y = data['Target'] # Assuming 'Target' is the column that indicates dropout status
 
 # Split the data into training and testing sets
