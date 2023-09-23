@@ -19,7 +19,8 @@ data['Target'] = label_encoder.fit_transform(data['Target'])
 
 # Define the features (X) and the target variable (y)
 X = data[
-    ['Marital status', "Mother's occupation", "Father's occupation", 'Gender', 'Debtor', 'Tuition fees up to date']]
+    ['Marital status', "Mother's occupation", "Father's occupation", 'Gender', 'Debtor', 'Tuition fees up to date',
+     'Curricular units 1st sem (grade)', 'Curricular units 2nd sem (grade)', 'Unemployment rate']]
 y = data['Target']  # Assuming 'Target' is the column that indicates dropout status
 
 # Split the data into training and testing sets
@@ -80,13 +81,9 @@ for name, classifier in classifiers.items():
 
 # Find the classifier with the highest accuracy
 best_classifier = max(best_accuracies, key=best_accuracies.get)
-print(f"The best classifier is {best_classifier} with accuracy {best_accuracies[best_classifier] * 100:.2f}%")
-
-# Create an ensemble of the best classifiers
-ensemble_models = [(name, model) for name, model in best_models.items()]
 
 # Create a soft voting classifier
-soft_voting_classifier = VotingClassifier(estimators=ensemble_models, voting='soft')
+soft_voting_classifier = VotingClassifier(estimators=[(name, model) for name, model in best_models.items()], voting='soft')
 
 # Train the soft voting classifier on the training data
 soft_voting_classifier.fit(X_train, y_train)
@@ -94,4 +91,18 @@ soft_voting_classifier.fit(X_train, y_train)
 # Predict with the soft voting classifier
 y_pred_soft = soft_voting_classifier.predict(X_test)
 accuracy_soft = accuracy_score(y_test, y_pred_soft)
-print(f"Soft Voting Classifier Accuracy: {accuracy * 100:.2f}%")
+print(f"Soft Voting Classifier Accuracy: {accuracy_soft * 100:.2f}%")
+
+# Create a hard voting classifier
+hard_voting_classifier = VotingClassifier(estimators=[(name, model) for name, model in best_models.items()], voting='hard')
+
+# Train the hard voting classifier on the training data
+hard_voting_classifier.fit(X_train, y_train)
+
+# Predict with the hard voting classifier
+y_pred_hard = hard_voting_classifier.predict(X_test)
+accuracy_hard = accuracy_score(y_test, y_pred_hard)
+print(f"Hard Voting Classifier Accuracy: {accuracy_hard * 100:.2f}%")
+
+print(f"The best classifier is {best_classifier} with accuracy {best_accuracies[best_classifier] * 100:.2f}%")
+
