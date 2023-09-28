@@ -24,6 +24,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/assets/dataset.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/assets/iris.data.csv">
           <value>
             <Attribute>

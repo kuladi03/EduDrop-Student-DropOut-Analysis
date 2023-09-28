@@ -10,7 +10,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import accuracy_score
 
 # Load the dataset (replace 'your_dataset.csv' with the actual dataset file)
-data = pd.read_csv("assets/WineQT.csv")
+data = pd.read_csv("assets/new dataset.csv")
 
 label_encoder = LabelEncoder()
 data['Target'] = label_encoder.fit_transform(data['Target'])

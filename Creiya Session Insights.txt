@@ -1,0 +1,30 @@
+Important Points : 
+
+1) Use Case : Search what is use for user & simplify it into so that it can be understood by anyone .
+2) Tech Stack : 
+	a) Try to use only INDIA Stack . i.e for authentication Use Phone Number or Aadhar , For payments BHIM UPI , For Documentation verification Digilocker etc
+3) Pitch : 
+	What , Why , 
+	Types : 
+		i)Elevator Pitch
+		ii)Pitch Competition
+		iii)Investor Pitch
+4) concept of valuation:
+               1)price 2}Value 3)Valuation 4)Market Capitalization
+5) Idea / Approach Details : 
+	a) You should be clear of your Solution , Don't use technical language it should be understood by any person
+	b) Flow should mention on what you want to achieve from start to end. 
+6) Technology stack : 
+	a) Digital Public Good : See Satya Nadella & Nandan Nilekani Interview . Use Digital Public Good's don't try to create your own DPG's Utilize DPG Search for your project
+**Don't talk on technical things on first slide**
+7) Use cases : 
+	a)Use only Happy Parts don't write anything Negative. Max 2 use cases don't write theory , don't write to many use cases 
+	b) write your solution in broadway , in minimum steps.
+8) Dependencies / Showstopper : 
+	a) Firstly our Assumption 
+	b) If anything is available which we need directly use it don't try to create our own solution.
+	c) Showstopper : If something is not there then your solution will be stopped. Just Identify , how to resolve that.
+	
+** Working Prototype Is the best you can add Links **
+
+This is the first step we have to create a PPT only No Poster.
