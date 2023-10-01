@@ -20,6 +20,7 @@
             <a href="/Website/home.html"class="mr-5 hover:text-white">Home</a>
             <a href="/Website/aboutus.html"class="mr-5 hover:text-white">About Us</a>
             <a href="/Website/feedback.html"class="mr-5 hover:text-white">Feedback</a>
+            <a href="/Website/new.html"class="mr-5 hover:text-white">Analysis</a>
           </nav>
           <a href="/Website/index.html">
           <button class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-green-700 rounded text-base mt-4 md:mt-0">Login
@@ -31,40 +32,101 @@
         </div>
       </header>
 
-  <section class="text-gray-400 bg-gray-900 body-font">
-    <div class="container mx-auto flex px-5 py-2 items-center justify-center flex-col">
-      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">Why Students DropOut ?</h1>
-      <img class="object-cover object-center rounded" alt="hero" src="https://source.unsplash.com/1080x520/?education,college,school">
-      <div class="text-center lg:w-2/3 w-full"><br>
-        <p class="leading-relaxed mb-8">Some drop out of schools voluntarily while others are forced to do so under terrible circumstances. School dropout is a universal fact. Whatever be the reason, the mere fact that a child is not completing her/his school education is not virtuous. Such children, many times fail to be an asset for the nation given their inability to contribute in any way.</p>
-        
-        <!-- File upload input -->
-        <div class="flex justify-center">
-            <input type="file" id="fileInput" accept=".csv" style="display: none;">
-            <label for="fileInput" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer">
-              Upload Dataset
-            </label>
-          </div>
+      <section class="text-gray-400 bg-gray-900 body-font">
+        <div class="container mx-auto flex px-5 py-2 items-center justify-center flex-col">
+          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">Why Students DropOut ?</h1>
+          <img class="object-cover object-center rounded" alt="hero" src="https://source.unsplash.com/1080x520/?education,college,school">
+          <div class="text-center lg:w-2/3 w-full"><br>
+            <p class="leading-relaxed mb-8">Some drop out of schools voluntarily while others are forced to do so under terrible circumstances. School dropout is a universal fact. Whatever be the reason, the mere fact that a child is not completing her/his school education is not virtuous. Such children, many times fail to be an asset for the nation given their inability to contribute in any way.</p>
+            
+ <!-- File upload input -->
+<input type="file" id="fileInput" accept=".csv" style="display: none;">
+<label for="fileInput" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer mb-4">
+  Upload Dataset
+</label>
 
-        <!-- Progress bar (dummy) -->
-        <div id="progressBar" class="w-full bg-gray-300 h-2 mt-4 hidden">
-          <div id="progress" class="bg-blue-500 h-full"></div>
-        </div>
+<!-- Progress bar (dummy) -->
+<div id="progressBar" class="w-full bg-gray-300 h-2 mt-4 hidden">
+  <div id="progress" class="bg-blue-500 h-full"></div>
+</div>
 
-        <!-- Analyze button -->
-        <div class="flex justify-center mt-4">
-            <button id="analyzeButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer">
-              Analyze
-            </button>
-          </div>
+<!-- Analyze button (on the next line) -->
+<div class="mt-4">
+  <button id="analyzeButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer">
+    Analyze
+  </button>
+</div>
 
-        <!-- Analysis section (dummy) -->
-        <div id="analysisResults" class="mt-4 hidden">
-          <canvas id="myChart" width="400" height="200"></canvas>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- Analysis section (dummy) -->
+<!-- <div id="analysisResults" class="mt-4 hidden"> -->
+ <!-- School Wise Analysis -->
+<!-- School Wise Analysis -->
+<div id="schoolWise" class="mb-4">
+  <h2 class="text-lg font-semibold mb-2">School Wise Analysis</h2>
+  <canvas id="schoolWiseChart" width="150" height="100" style="max-width: 100%;"></canvas>
+  <p class="mt-2">Key Factors:
+    <ul>
+      <li>Factor 1: Importance of factor 1.</li>
+      <li>Factor 2: Importance of factor 2.</li>
+      <li>Factor 3: Importance of factor 3.</li>
+    </ul>
+  </p>
+</div>
+
+<!-- Gender Wise Analysis -->
+<div id="genderWise" class="mb-4">
+  <h2 class="text-lg font-semibold mb-2">Gender Wise Analysis</h2>
+  <canvas id="genderWiseChart" width="150" height="100" style="max-width: 100%;"></canvas>
+  <p class="mt-2">Key Factors:
+    <ul>
+      <li>Factor 1: Importance of factor 1.</li>
+      <li>Factor 2: Importance of factor 2.</li>
+      <li>Factor 3: Importance of factor 3.</li>
+    </ul>
+  </p>
+</div>
+
+<!-- Area Wise Analysis -->
+<div id="areaWise" class="mb-4">
+  <h2 class="text-lg font-semibold mb-2">Area Wise Analysis</h2>
+  <canvas id="areaWiseChart" width="150" height="100" style="max-width: 100%;"></canvas>
+  <p class="mt-2">Key Factors:
+    <ul>
+      <li>Factor 1: Importance of factor 1.</li>
+      <li>Factor 2: Importance of factor 2.</li>
+      <li>Factor 3: Importance of factor 3.</li>
+    </ul>
+  </p>
+</div>
+
+<!-- Caste Wise Analysis -->
+<div id="casteWise" class="mb-4">
+  <h2 class="text-lg font-semibold mb-2">Caste Wise Analysis</h2>
+  <canvas id="casteWiseChart" width="150" height="100" style="max-width: 100%;"></canvas>
+  <p class="mt-2">Key Factors:
+    <ul>
+      <li>Factor 1: Importance of factor 1.</li>
+      <li>Factor 2: Importance of factor 2.</li>
+      <li>Factor 3: Importance of factor 3.</li>
+    </ul>
+  </p>
+</div>
+
+<!-- Standard/Age Wise Analysis -->
+<div id="standardAgeWise" class="mb-4">
+  <h2 class="text-lg font-semibold mb-2">Standard/Age Wise Analysis</h2>
+  <canvas id="standardAgeWiseChart" width="150" height="100" style="max-width: 100%;"></canvas>
+  <p class="mt-2">Key Factors:
+    <ul>
+      <li>Factor 1: Importance of factor 1.</li>
+      <li>Factor 2: Importance of factor 2.</li>
+      <li>Factor 3: Importance of factor 3.</li>
+    </ul>
+  </p>
+</div>
+
+  <!-- </div> -->
+      </section>
 
   <footer class="text-gray-600 body-font">
     <div class="bg-gray-800">
@@ -103,97 +165,186 @@
             </span>
           </div>
         </footer>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  <script>
-    // Sample data for the chart (dummy)
-    var data = {
-      labels: ["Category 1", "Category 2", "Category 3"],
-      datasets: [
-        {
-          label: "Dataset 1",
-          data: [30, 50, 20],
-          backgroundColor: ["rgba(255, 99, 132, 0.6)", "rgba(54, 162, 235, 0.6)", "rgba(255, 206, 86, 0.6)"],
-        },
-      ],
-    };
-
-    // Get the canvas element
-    var ctx = document.getElementById("myChart").getContext("2d");
-
-    // Create the chart
-    var myChart = new Chart(ctx, {
-      type: "bar",
-      data: data,
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
-      },
-    });
-
-    // File upload input
-    var fileInput = document.getElementById("fileInput");
-    fileInput.addEventListener("change", handleFileUpload);
-
-    // Analyze button
-    var analyzeButton = document.getElementById("analyzeButton");
-    analyzeButton.addEventListener("click", analyzeData);
-
-    function handleFileUpload() {
-      // Hide the Upload button and show the Progress bar
-      var uploadButton = document.getElementById("fileInput");
-      uploadButton.style.display = "none";
-      var progressBar = document.getElementById("progressBar");
-      progressBar.style.display = "block";
-
-      // Simulate progress (dummy)
-      var progress = document.getElementById("progress");
-      var percent = 0;
-      var interval = setInterval(function() {
-        percent += 10;
-        progress.style.width = percent + "%";
-        if (percent >= 100) {
-          clearInterval(interval);
-          setTimeout(function() {
-            var analyzeButtonDiv = document.getElementById("analyzeButtonDiv");
-            analyzeButtonDiv.style.display = "block";
-          }, 2000);
-        }
-      }, 200);
-    }
-
-    function analyzeData() {
-      // Perform data analysis here (dummy)
-      // Replace this section with your actual analysis code
-
-      // Simulate analysis (dummy)
-      setTimeout(function() {
-        var sampleResults = {
-          labels: ["Category A", "Category B", "Category C"],
-          datasets: [
-            {
-              label: "Sample Dataset",
-              data: [40, 60, 30],
-              backgroundColor: ["rgba(255, 99, 132, 0.6)", "rgba(54, 162, 235, 0.6)", "rgba(255, 206, 86, 0.6)"],
+        <script>
+          // Dummy data for analysis (replace with actual data)
+          var schoolWiseData = {
+            labels: ["School A", "School B", "School C"],
+            datasets: [
+              {
+                label: "School Wise Dataset",
+                data: [40, 30, 50],
+                backgroundColor: ["rgba(255, 99, 132, 0.6)", "rgba(54, 162, 235, 0.6)", "rgba(255, 206, 86, 0.6)"],
+              },
+            ],
+          };
+      
+          var genderWiseData = {
+            labels: ["Male", "Female"],
+            datasets: [
+              {
+                label: "Gender Wise Dataset",
+                data: [60, 40],
+                backgroundColor: ["rgba(255, 99, 132, 0.6)", "rgba(54, 162, 235, 0.6)"],
+              },
+            ],
+          };
+      
+          var areaWiseData = {
+            labels: ["Urban", "Rural"],
+            datasets: [
+              {
+                label: "Area Wise Dataset",
+                data: [30, 70],
+                backgroundColor: ["rgba(255, 99, 132, 0.6)", "rgba(54, 162, 235, 0.6)"],
+              },
+            ],
+          };
+      
+          var casteWiseData = {
+            labels: ["Caste X", "Caste Y", "Caste Z"],
+            datasets: [
+              {
+                label: "Caste Wise Dataset",
+                data: [45, 25, 30],
+                backgroundColor: ["rgba(255, 99, 132, 0.6)", "rgba(54, 162, 235, 0.6)", "rgba(255, 206, 86, 0.6)"],
+              },
+            ],
+          };
+      
+          var standardAgeWiseData = {
+            labels: ["Standard 1", "Standard 2", "Standard 3"],
+            datasets: [
+              {
+                label: "Standard/Age Wise Dataset",
+                data: [20, 30, 25],
+                backgroundColor: ["rgba(255, 99, 132, 0.6)", "rgba(54, 162, 235, 0.6)", "rgba(255, 206, 86, 0.6)"],
+              },
+            ],
+          };
+      
+          // Get the canvas elements
+          var schoolWiseCtx = document.getElementById("schoolWiseChart").getContext("2d");
+          var genderWiseCtx = document.getElementById("genderWiseChart").getContext("2d");
+          var areaWiseCtx = document.getElementById("areaWiseChart").getContext("2d");
+          var casteWiseCtx = document.getElementById("casteWiseChart").getContext("2d");
+          var standardAgeWiseCtx = document.getElementById("standardAgeWiseChart").getContext("2d");
+      
+          // Create the charts
+          var schoolWiseChart = new Chart(schoolWiseCtx, {
+            type: "bar",
+            data: schoolWiseData,
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true,
+                },
+              },
             },
-          ],
-        };
+          });
+      
+          var genderWiseChart = new Chart(genderWiseCtx, {
+            type: "pie",
+            data: genderWiseData,
+          });
+      
+          var areaWiseChart = new Chart(areaWiseCtx, {
+            type: "doughnut",
+            data: areaWiseData,
+          });
+      
+          var casteWiseChart = new Chart(casteWiseCtx, {
+            type: "bar",
+            data: casteWiseData,
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true,
+                },
+              },
+            },
+          });
 
-        // Hide the progress bar
-        var progressBar = document.getElementById("progressBar");
-        progressBar.style.display = "none";
+          var standardAgeWiseChart = new Chart(standardAgeWiseCtx, {
+            type: "bar",
+            data: standar,
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true,
+                },
+              },
+            },
+          });
+      
+          // File upload input
+          var fileInput = document.getElementById("fileInput");
+          fileInput.addEventListener("change", handleFileUpload);
+      
+          // Analyze button
+          var analyzeButton = document.getElementById("analyzeButton");
+          analyzeButton.addEventListener("click", analyzeData);
+      
+          function handleFileUpload() {
+          // Hide the Upload button and show the Progress bar
+          var uploadButton = document.getElementById("fileInput");
+          uploadButton.style.display = "none";
+          var progressBar = document.getElementById("progressBar");
+          progressBar.style.display = "block";
 
-        // Show the analysis results section
-        var analysisResults = document.getElementById("analysisResults");
-        analysisResults.style.display = "block";
+          // Initialize a FileReader
+          var reader = new FileReader();
 
-        // Update the chart with the sample analysis results
-        myChart.data = sampleResults;
-        myChart.update();
-      }, 2000);
-    }
-  </script>
+          // Define a function to handle the file reading progress
+          reader.onprogress = function(event) {
+            if (event.lengthComputable) {
+              // Calculate the progress percentage
+              var percent = (event.loaded / event.total) * 100;
+
+              // Update the progress bar
+              var progress = document.getElementById("progress");
+              progress.style.width = percent + "%";
+            }
+          };
+
+          // Define a function to handle the file reading completion
+          reader.onload = function(event) {
+            // Hide the progress bar
+            var progressBar = document.getElementById("progressBar");
+            progressBar.style.display = "none";
+
+            // Show the dataset uploaded dialog
+            Swal.fire({
+              icon: "success",
+              title: "Dataset Uploaded",
+              text: "Your dataset has been successfully uploaded.",
+            });
+
+            // Add a delay of 2 seconds before showing the Analyze button
+            setTimeout(function() {
+              var analyzeButtonDiv = document.getElementById("analyzeButtonDiv");
+              analyzeButtonDiv.style.display = "block";
+            }, 2000);
+          };
+
+          // Read the file as text
+          reader.readAsText(fileInput.files[0]);
+        }
+
+      
+          function analyzeData() {
+            // Simulate analysis (dummy)
+            setTimeout(function() {
+              // Hide the progress bar
+              var progressBar = document.getElementById("progressBar");
+              progressBar.style.display = "none";
+      
+              // Show the analysis results section
+              var analysisResults = document.getElementById("analysisResults");
+              analysisResults.style.display = "block";
+            }, 2000);
+          }
+        </script>
 </body>
 </html>
