@@ -10,7 +10,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import accuracy_score
 
 # Load the dataset (replace 'your_dataset.csv' with the actual dataset file)
-data = pd.read_csv("assets/WineQT.csv")
+data = pd.read_csv("assets/new dataset.csv")
 
 label_encoder = LabelEncoder()
 data['Target'] = label_encoder.fit_transform(data['Target'])
@@ -28,7 +28,7 @@ classifiers = {
     'Logistic Regression': LogisticRegressionCV(cv=5, max_iter=1000),
     'K-Nearest Neighbors': KNeighborsClassifier(),
     'SVM': SVC(probability=True),  # Enable probability estimates for soft voting
-    'XGBoost': XGBClassifier()
+    'XGBoost': XGBClassifier(n_estimator = 20)
 }
 
 best_models = {}

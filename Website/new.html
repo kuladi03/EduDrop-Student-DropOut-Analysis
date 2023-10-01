@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduDrop Analytics</title>
+</head>
+<body>
+
+    <header class="text-gray-400 bg-gray-800 body-font">
+        <div class="container mx-auto flex flex-wrap p-3 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+            <img class= "object-cover object-center rounded" alt="logo" src="logo.png" width="60" height="60">
+
+            <span class="ml-3 text-xl">EduDrop</span>
+          </a>
+          <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+            <a href="/Manas/home.html"class="mr-5 hover:text-white">Home</a>
+            <a href="/Manas/aboutus.html"class="mr-5 hover:text-white">About Us</a>
+            <a href="/Manas/feedback.html"class="mr-5 hover:text-white">Feedback</a>
+          </nav>
+          <a href="/Manas/index.html">
+          <button class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-green-700 rounded text-base mt-4 md:mt-0">Login
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </a>
+        </div>
+      </header>
+
+  <section class="text-gray-400 bg-gray-900 body-font">
+    <div class="container mx-auto flex px-5 py-2 items-center justify-center flex-col">
+      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">Why Students DropOut ?</h1>
+      <img class="object-cover object-center rounded" alt="hero" src="https://source.unsplash.com/1080x520/?education,college,school">
+      <div class="text-center lg:w-2/3 w-full"><br>
+        <p class="leading-relaxed mb-8">Some drop out of schools voluntarily while others are forced to do so under terrible circumstances. School dropout is a universal fact. Whatever be the reason, the mere fact that a child is not completing her/his school education is not virtuous. Such children, many times fail to be an asset for the nation given their inability to contribute in any way.</p>
+        
+        <!-- File upload input -->
+        <div class="flex justify-center">
+            <input type="file" id="fileInput" accept=".csv" style="display: none;">
+            <label for="fileInput" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer">
+              Upload Dataset
+            </label>
+          </div>
+
+        <!-- Progress bar (dummy) -->
+        <div id="progressBar" class="w-full bg-gray-300 h-2 mt-4 hidden">
+          <div id="progress" class="bg-blue-500 h-full"></div>
+        </div>
+
+        <!-- Analyze button -->
+        <div class="flex justify-center mt-4">
+            <button id="analyzeButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer">
+              Analyze
+            </button>
+          </div>
+
+        <!-- Analysis section (dummy) -->
+        <div id="analysisResults" class="mt-4 hidden">
+          <canvas id="myChart" width="400" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-gray-600 body-font">
+    <div class="bg-gray-800">
+    <div class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
+      <a class="flex title-font font-medium items-center md:justify-start justify-center text-white">
+              <img class= "object-cover object-center rounded" alt="logo" src="logo.png" width="60" height="60">
+              </svg>
+              <span class="ml-3 text-xl">EduDrop</span>
+            </a>
+            <p class="text-sm text-white sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-1000 sm:py-2 sm:mt-0 mt-4">© 2023 EduDrop —
+              <a href="https://twitter.com/edudrop" class="text-white ml-1" rel="noopener noreferrer" target="_blank">@edudrop</a>
+            </p>
+            <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+              <a class="text-gray-500">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-500">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-500">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-500">
+                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                  <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                </svg>
+              </a>
+            </span>
+          </div>
+        </footer>
+
+  <script>
+    // Sample data for the chart (dummy)
+    var data = {
+      labels: ["Category 1", "Category 2", "Category 3"],
+      datasets: [
+        {
+          label: "Dataset 1",
+          data: [30, 50, 20],
+          backgroundColor: ["rgba(255, 99, 132, 0.6)", "rgba(54, 162, 235, 0.6)", "rgba(255, 206, 86, 0.6)"],
+        },
+      ],
+    };
+
+    // Get the canvas element
+    var ctx = document.getElementById("myChart").getContext("2d");
+
+    // Create the chart
+    var myChart = new Chart(ctx, {
+      type: "bar",
+      data: data,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+
+    // File upload input
+    var fileInput = document.getElementById("fileInput");
+    fileInput.addEventListener("change", handleFileUpload);
+
+    // Analyze button
+    var analyzeButton = document.getElementById("analyzeButton");
+    analyzeButton.addEventListener("click", analyzeData);
+
+    function handleFileUpload() {
+      // Hide the Upload button and show the Progress bar
+      var uploadButton = document.getElementById("fileInput");
+      uploadButton.style.display = "none";
+      var progressBar = document.getElementById("progressBar");
+      progressBar.style.display = "block";
+
+      // Simulate progress (dummy)
+      var progress = document.getElementById("progress");
+      var percent = 0;
+      var interval = setInterval(function() {
+        percent += 10;
+        progress.style.width = percent + "%";
+        if (percent >= 100) {
+          clearInterval(interval);
+          setTimeout(function() {
+            var analyzeButtonDiv = document.getElementById("analyzeButtonDiv");
+            analyzeButtonDiv.style.display = "block";
+          }, 2000);
+        }
+      }, 200);
+    }
+
+    function analyzeData() {
+      // Perform data analysis here (dummy)
+      // Replace this section with your actual analysis code
+
+      // Simulate analysis (dummy)
+      setTimeout(function() {
+        var sampleResults = {
+          labels: ["Category A", "Category B", "Category C"],
+          datasets: [
+            {
+              label: "Sample Dataset",
+              data: [40, 60, 30],
+              backgroundColor: ["rgba(255, 99, 132, 0.6)", "rgba(54, 162, 235, 0.6)", "rgba(255, 206, 86, 0.6)"],
+            },
+          ],
+        };
+
+        // Hide the progress bar
+        var progressBar = document.getElementById("progressBar");
+        progressBar.style.display = "none";
+
+        // Show the analysis results section
+        var analysisResults = document.getElementById("analysisResults");
+        analysisResults.style.display = "block";
+
+        // Update the chart with the sample analysis results
+        myChart.data = sampleResults;
+        myChart.update();
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

@@ -19,7 +19,7 @@ data['Target'] = label_encoder.fit_transform(data['Target'])
 
 # Define the features (X) and the target variable (y)
 X = data[
-    ["Mother's occupation", "Father's occupation", 'Course', 'Curricular units 1st sem (approved)', 'Curricular units 2nd sem (approved)' , 'Tuition fees up to date',
+    ["Mother's occupation", "Father's occupation", 'Course', 'Curricular units 1st sem (approved)' , 'Tuition fees up to date',
      'Curricular units 1st sem (grade)', 'Age at enrollment']]
 y = data['Target'] # Assuming 'Target' is the column that indicates dropout status
 

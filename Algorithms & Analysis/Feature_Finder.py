@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 
 # Load the dataset
-data = pd.read_csv("assets/new dataset.csv")
+data = pd.read_csv("assets/dataset.csv")
 
 # Define the features (X) and the target variable (y)
 X = data.drop(columns=['Target'])  # Assuming 'Target' is the target variable
