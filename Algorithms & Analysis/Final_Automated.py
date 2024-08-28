@@ -10,11 +10,10 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import accuracy_score
 
 # Load the dataset (replace 'your_dataset.csv' with the actual dataset file)
-data = pd.read_csv("assets/data.csv")
+data = pd.read_csv("Algorithms & Analysis/assets/new dataset.csv")
 
 label_encoder = LabelEncoder()
 data['Target'] = label_encoder.fit_transform(data['Target'])
-
 # Define the features (X) and the target variable (y)
 X = data.drop(columns=['Target'])  # Assuming 'Target' is the target variable
 y = data['Target']  # Assuming 'Target' is the column that indicates the target variable
