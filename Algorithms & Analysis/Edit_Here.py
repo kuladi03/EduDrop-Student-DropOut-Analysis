@@ -1,34 +1,51 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.ensemble import RandomForestClassifier, VotingClassifier
 from sklearn.linear_model import LogisticRegressionCV
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 from xgboost import XGBClassifier
-from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.metrics import accuracy_score
 
-# Load the dataset (replace 'your_dataset.csv' with the actual dataset file)
-data = pd.read_csv("Algorithms & Analysis/assets/new dataset.csv")
+# Load the dataset
+data = pd.read_csv("Algorithms & Analysis/assets/student_outcome_dataset.csv")
 
 label_encoder = LabelEncoder()
 data['Target'] = label_encoder.fit_transform(data['Target'])
 
 # Define the features (X) and the target variable (y)
-X = data.drop(columns=['Target'])  # Assuming 'Target' is the target variable
-y = data['Target']  # Assuming 'Target' is the column that indicates the target variable
+X = data.drop(columns=['Target'])
+y = data['Target']
 
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Define a list of classifiers to use
+# Scale the features for better performance
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# Define a list of classifiers with hyperparameter grids for tuning
 classifiers = {
-    'Random Forest': RandomForestClassifier(n_estimators=100, random_state=42),
-    'Logistic Regression': LogisticRegressionCV(cv=5, max_iter=1000),
-    'K-Nearest Neighbors': KNeighborsClassifier(),
-    'SVM': SVC(probability=True),  # Enable probability estimates for soft voting
-    'XGBoost': XGBClassifier(n_estimator = 20)
+    'Random Forest': (RandomForestClassifier(random_state=42), {
+        'n_estimators': [100, 200],
+        'max_depth': [None, 10, 20]
+    }),
+    'Logistic Regression': (LogisticRegressionCV(cv=5, max_iter=1000), {}),
+    'K-Nearest Neighbors': (KNeighborsClassifier(), {
+        'n_neighbors': [3, 5, 7],
+        'weights': ['uniform', 'distance']
+    }),
+    'SVM': (SVC(probability=True), {
+        'C': [0.1, 1, 10],
+        'kernel': ['linear', 'rbf']
+    }),
+    'XGBoost': (XGBClassifier(), {
+        'n_estimators': [100, 200],
+        'learning_rate': [0.01, 0.1, 0.2]
+    })
 }
 
 best_models = {}
@@ -43,7 +60,7 @@ feature_importance_data = []
 classifier_names = list(classifiers.keys())
 
 # Iterate through classifiers and perform feature selection and model training
-for name, classifier in classifiers.items():
+for name, (classifier, param_grid) in classifiers.items():
     print(f"Training {name}...")
 
     # Initialize the Random Forest classifier for feature selection
@@ -74,9 +91,18 @@ for name, classifier in classifiers.items():
     X_train_selected = X_train[selected_features]
     X_test_selected = X_test[selected_features]
 
-    # Train and evaluate the classifier using only the selected features
-    classifier.fit(X_train_selected, y_train)
-    y_pred = classifier.predict(X_test_selected)
+    # Scale the selected features
+    X_train_selected_scaled = scaler.fit_transform(X_train_selected)
+    X_test_selected_scaled = scaler.transform(X_test_selected)
+
+    # Hyperparameter tuning using GridSearchCV
+    grid_search = GridSearchCV(classifier, param_grid, cv=5, scoring='accuracy', n_jobs=-1)
+    grid_search.fit(X_train_selected_scaled, y_train)
+
+    best_model = grid_search.best_estimator_
+    best_models[name] = best_model
+
+    y_pred = best_model.predict(X_test_selected_scaled)
     accuracy = accuracy_score(y_test, y_pred)
     best_accuracies[name] = accuracy
 
@@ -95,28 +121,6 @@ for name, classifier in classifiers.items():
 
 # Find the classifier with the highest accuracy
 best_classifier = max(best_accuracies, key=best_accuracies.get)
-
-# Create a soft voting classifier
-soft_voting_classifier = VotingClassifier(estimators=[(name, classifier) for name, classifier in classifiers.items()], voting='soft')
-
-# Train the soft voting classifier on the training data
-soft_voting_classifier.fit(X_train, y_train)
-
-# Predict with the soft voting classifier
-y_pred_soft = soft_voting_classifier.predict(X_test)
-accuracy_soft = accuracy_score(y_test, y_pred_soft)
-print(f"Soft Voting Classifier Accuracy: {accuracy_soft * 100:.2f}%")
-
-# Create a hard voting classifier
-hard_voting_classifier = VotingClassifier(estimators=[(name, classifier) for name, classifier in classifiers.items()], voting='hard')
-
-# Train the hard voting classifier on the training data
-hard_voting_classifier.fit(X_train, y_train)
-
-# Predict with the hard voting classifier
-y_pred_hard = hard_voting_classifier.predict(X_test)
-accuracy_hard = accuracy_score(y_test, y_pred_hard)
-print(f"Hard Voting Classifier Accuracy: {accuracy_hard * 100:.2f}%")
 
 print(f"The best classifier is {best_classifier} with accuracy {best_accuracies[best_classifier] * 100:.2f}%")
 
