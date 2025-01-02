@@ -14,7 +14,6 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer, Image
 import io
 
-# Load and preprocess dataset
 data = pd.read_csv("Algorithms & Analysis/assets/student_outcome_dataset.csv")
 label_encoder = LabelEncoder()
 data['Target'] = label_encoder.fit_transform(data['Target'])
@@ -34,9 +33,7 @@ X_test_scaled = scaler.transform(X_test)
 # Define classifiers and hyperparameters
 classifiers = {
     'Random Forest': (RandomForestClassifier(random_state=42), {'n_estimators': [100, 200], 'max_depth': [None, 10, 20]}),
-    'Logistic Regression': (LogisticRegressionCV(cv=5, max_iter=1000), {}),
     'K-Nearest Neighbors': (KNeighborsClassifier(), {'n_neighbors': [3, 5, 7], 'weights': ['uniform', 'distance']}),
-    # 'SVM': (SVC(probability=True), {'C': [0.1, 1, 10], 'kernel': ['linear', 'rbf']}),
     'XGBoost': (XGBClassifier(), {'n_estimators': [100, 200], 'learning_rate': [0.01, 0.1, 0.2]})
 }
 
